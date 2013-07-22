@@ -13,7 +13,6 @@
 # 
 # Options list:
 #   -t - Target folder for project. The whole folder will be used for the project if -p option is not passed.
-#
 #   -n - Project name. Will be used in SBT build file as project name. Also it will make new folder in the target folder if
 #		 it is not the same.
 #	  -v - Flag indicating a version of the project. By default it sets 0.0.1.0 version in SBT file.
@@ -85,10 +84,13 @@ unmanagedJars in Compile  <++= baseDirectory map { base =>
 
 libraryDependencies ++= Seq(
  "com.typesafe" %% "scalalogging-slf4j" % "1.0.1",
- "org.specs2" %% "specs2" % "1.14" % "test",
+ "org.specs2" %% "specs2" % "2.2-SNAPSHOT" % "test",
  "commons-collections" % "commons-collections" % "3.0",
  "commons-logging" % "commons-logging" % "1.1.3",
- "commons-configuration" % "commons-configuration" % "1.8"
+ "commons-configuration" % "commons-configuration" % "1.8",
+ "commons-net" % "commons-net" % "3.3",
+ "org.mockito" % "mockito-core" % "1.9.5",
+ "org.slf4j" % "slf4j-simple" % "1.7.2"
 )
 
 unmanagedJars in Test <++= baseDirectory map { base => (base / "lib" / "test" ** "*.jar").classpath }
